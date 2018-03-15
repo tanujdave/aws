@@ -1,6 +1,6 @@
 <?php
 
-namespace Printi\NotifyBundle\DependencyInjection;
+namespace Printi\AwsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

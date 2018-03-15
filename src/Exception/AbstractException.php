@@ -1,6 +1,6 @@
 <?php
 
-namespace Printi\NotifyBundle\Exception;
+namespace Printi\AwsBundle\Exception;
 
 /**
  * BaseException

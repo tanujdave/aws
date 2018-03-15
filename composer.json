@@ -15,13 +15,14 @@
   ],
   "autoload": {
     "psr-4": {
-      "Printi\\Aws\\": "src/"
+      "Printi\\AwsBundle\\": "src/"
     }
   },
   "require": {
     "php": ">=5.4.0",
     "symfony/framework-bundle": "^3.3",
+    "aws/aws-sdk-php-symfony": "^2.0",
     "printi/api-client": "1.*",
-    "aws/aws-sdk-php-symfony": "^2.0"
+    "symfony/monolog-bundle": "^3.1"
   }
 }

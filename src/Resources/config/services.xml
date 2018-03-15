@@ -8,12 +8,19 @@
 
         <defaults autowire="true" autoconfigure="true" public="false" />
 
-        <service id="notify.service" class="Printi\NotifyBundle\Notify">
-            <argument>%notify%</argument>
+        <service id="printi.aws.sns" class="Printi\AwsBundle\Services\Sns\Sns">
             <argument type="service" id="aws.sns" />
+            <argument>%printi_sns_config%</argument>
+            <argument type="service" id="monolog.logger" />
         </service>
+        <service id="Printi\AwsBundle\Services\Sns\Sns" alias="printi.aws.sns" />
 
-        <service id="Printi\NotifyBundle\Notify" alias="notify.service" />
+        <service id="printi.aws.s3" class="Printi\AwsBundle\Services\S3\S3">
+            <argument type="service" id="aws.s3" />
+            <argument>%printi_s3_config%</argument>
+            <argument type="service" id="monolog.logger" />
+        </service>
+        <service id="Printi\AwsBundle\Services\S3\S3" alias="printi.aws.s3" />
 
     </services>
 </container>

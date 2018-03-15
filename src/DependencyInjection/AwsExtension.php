@@ -1,13 +1,13 @@
 <?php
 
-namespace Printi\NotifyBundle\DependencyInjection;
+namespace Printi\AwsBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 
-class NotifyExtension extends Extension
+class AwsExtension extends Extension
 {
 
     /**
@@ -21,9 +21,9 @@ class NotifyExtension extends Extension
             new FileLocator(__DIR__.'/../Resources/config')
         );
         $loader->load('services.xml');
-        $container->setParameter('notify', $configs[0]);
+//        $container->setParameter('notify', $configs[0]);
 
-        var_dump(array_merge($configs[0], ['aws' => $container->getParameter('aws')]));
-        echo 1122;
+//        var_dump(array_merge($configs[0], ['aws' => $container->getParameter('aws')]));
+//        echo 1122;
     }
 }
