@@ -21,7 +21,8 @@ class AwsExtension extends Extension
             new FileLocator(__DIR__.'/../Resources/config')
         );
         $loader->load('services.xml');
-//        $container->setParameter('notify', $configs[0]);
+        $container->setParameter('printi_sns_config', $configs[0]['sns']);
+        $container->setParameter('printi_s3_config', $configs[0]['s3']);
 
 //        var_dump(array_merge($configs[0], ['aws' => $container->getParameter('aws')]));
 //        echo 1122;
