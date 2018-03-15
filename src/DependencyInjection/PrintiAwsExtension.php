@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 
-class AwsExtension extends Extension
+class PrintiAwsExtension extends Extension
 {
 
     /**
