@@ -21,8 +21,8 @@ class PrintiAwsExtension extends Extension
             new FileLocator(__DIR__.'/../Resources/config')
         );
         $loader->load('services.xml');
-        $container->setParameter('printi_sns_config', $configs[0]['sns']);
-        $container->setParameter('printi_s3_config', $configs[0]['s3']);
+        $container->setParameter('printi_sns_config', []);
+        $container->setParameter('printi_s3_config', []);
 
 //        var_dump(array_merge($configs[0], ['aws' => $container->getParameter('aws')]));
 //        echo 1122;
