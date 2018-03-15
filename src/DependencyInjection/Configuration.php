@@ -16,15 +16,15 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('s3')
                     ->useAttributeAsKey('name')
-                    ->prototype('scalar')->end()
+                    ->prototype('array')->end()
                 ->end()
                 ->arrayNode('sqs')
                     ->useAttributeAsKey('name')
-                    ->prototype('scalar')->end()
+                    ->prototype('array')->end()
                 ->end()
                 ->arrayNode('sns')
                     ->useAttributeAsKey('name')
-                    ->prototype('scalar')->end()
+                    ->prototype('array')->end()
                 ->end()
             ->end();
 
