@@ -11,10 +11,18 @@ class Configuration implements ConfigurationInterface
     {
         $builder = new TreeBuilder();
 
-        $root = $builder->root('notify');
+        $root = $builder->root('printi_aws');
         $root
             ->children()
-                ->arrayNode('transition')
+                ->arrayNode('s3')
+                    ->useAttributeAsKey('name')
+                    ->prototype('scalar')->end()
+                ->end()
+                ->arrayNode('sqs')
+                    ->useAttributeAsKey('name')
+                    ->prototype('scalar')->end()
+                ->end()
+                ->arrayNode('sns')
                     ->useAttributeAsKey('name')
                     ->prototype('scalar')->end()
                 ->end()
