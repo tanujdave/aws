@@ -39,11 +39,11 @@ class Sns
      */
     public function publish(string $topic, array $messageBody = [])
     {
-        if (!isset($this->awsConfig['sns'][$topic])) {
+        if (!isset($this->snsConfig[$topic])) {
             throw new SnsException(SnsException::TYPE_SNS_CONFIG_NOT_FOUND);
         }
 
-        if (false === $this->snsConfig['sns'][$topic]['enable']) {
+        if (false === $this->snsConfig[$topic]['enable']) {
             throw new SnsException(SnsException::TYPE_SNS_CONFIG_DISABLED);
         }
 
@@ -55,7 +55,7 @@ class Sns
         );
 
         $payload = [
-            'TopicArn'         => $this->snsConfig['sns'][$topic]['topic_arn'],
+            'TopicArn'         => $this->snsConfig[$topic]['topic_arn'],
             'Message'          => $message,
             'MessageStructure' => 'json',
         ];

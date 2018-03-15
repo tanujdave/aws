@@ -41,11 +41,11 @@ class S3
     public function signFileUrl(string $objectUrl, string $bucket, string $expirationTime = '+10 minutes'): string
     {
 
-        if (!isset($this->awsConfig['s3'][$bucket]['bucket'])) {
+        if (!isset($this->awsConfig[$bucket]['bucket'])) {
             throw new S3Exception(S3Exception::TYPE_S3_BUCKET_CONFIG_NOT_FOUND);
         }
 
-        $bucketName = $this->s3Config['s3'][$bucket]['bucket'];
+        $bucketName = $this->s3Config[$bucket]['bucket'];
         $cmd        = $this->s3Client->getCommand(
             'GetObject',
             [
@@ -71,12 +71,12 @@ class S3
      */
     public function moveTempToFinal(int $orderItemId, string $url, string $bucket)
     {
-        if (!isset($this->awsConfig['s3'][$bucket]['bucket'])) {
+        if (!isset($this->awsConfig[$bucket]['bucket'])) {
             throw new S3Exception(S3Exception::TYPE_S3_BUCKET_CONFIG_NOT_FOUND);
         }
 
         $objectUrl  = false;
-        $bucketName = $this->s3Config['s3'][$bucket]['bucket'];
+        $bucketName = $this->s3Config[$bucket]['bucket'];
         if (preg_match("/upload\/temp\/(.*)/", $url, $matches)) {
             $originPath = parse_url($url, PHP_URL_PATH);
             $targetPath = sprintf('upload/connected_files/%s/%s', $orderItemId, basename($matches[1]));
