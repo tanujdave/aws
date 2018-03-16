@@ -22,7 +22,6 @@
     "php": "^7.0",
     "symfony/framework-bundle": "^3.3",
     "aws/aws-sdk-php-symfony": "^2.0",
-    "printi/api-client": "1.*",
     "symfony/monolog-bundle": "^3.1"
   }
 }
