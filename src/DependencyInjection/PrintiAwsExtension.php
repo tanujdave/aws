@@ -24,7 +24,14 @@ class PrintiAwsExtension extends Extension
 
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $container->setParameter('printi_sns_config', $config['sns']);
-        $container->setParameter('printi_s3_config', $config['s3']);
+        if (!empty($config)) {
+            if (isset($config['sns'])) {
+                $container->setParameter('printi_sns_config', $config['sns']);
+            }
+
+            if (isset($config['s3'])) {
+                $container->setParameter('printi_s3_config', $config['s3']);
+            }
+        }
     }
 }
